@@ -2,6 +2,7 @@
 import { Input, Textarea, Button } from '@nextui-org/react';
 import { motion } from "framer-motion";
 import {FormEvent, useState} from "react";
+import sendEmailFromContactForm from "@/app/actions/contact";
 
 interface FormData {
     name: string;
@@ -24,23 +25,16 @@ export default function ContactForm() {
         };
         console.log(formData)
         try {
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            if (response.ok) {
+            const result = await sendEmailFromContactForm(formData)
+            if (result.ok) {
                 setStatus('E-Mail wurde erfolgreich gesendet!');
                 e.currentTarget.reset(); // Formular zurücksetzen
             } else {
-                setStatus('Fehler beim Senden der E-Mail');
+                setStatus(result.message);
             }
         } catch (error) {
-            console.error('Fehler:', error);
-            setStatus('Fehler beim Senden der E-Mail');
+            console.error('Error:', error);
+            setStatus("Error sending the email");
         }
     }
 
@@ -56,10 +50,10 @@ export default function ContactForm() {
                 <h2 className="text-5xl font-extrabold text-white">Contact Me</h2>
                 <p className="mt-4 text-lg text-gray-400">
                     Feel free to reach out if you have any questions or want to work together.
-                    {status?.toString()}
                 </p>
             </div>
             <div className="max-w-2xl mx-auto bg-background p-8 rounded-lg shadow-lg text-white">
+                <span className="text-warning">{status?.toString()}</span>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-6">
                         <Input

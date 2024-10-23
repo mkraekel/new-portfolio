@@ -41,7 +41,7 @@ export default function AboutMe() {
                 >
                     <h3 className="text-4xl font-bold mb-6">Know About me!</h3>
                     <p className="text-lg text-gray-300">
-                        Greetings! I'm Mathis, a <span className="font-bold text-primary-500">
+                        Greetings! I &apos; m Mathis, a <span className="font-bold text-primary-500">
                             dedicated software engineer
                         </span> focused on building impactful projects. My expertise spans TypeScript, JavaScript, Node.js, React.js, and Next.js, encompassing both frontend and backend development.
                     </p>
@@ -49,7 +49,7 @@ export default function AboutMe() {
                         I have a proven track record of crafting high-quality digital solutions, from creating seamless user interfaces with React.js to architecting robust backend systems using Node.js. My focus is always on delivering clean, efficient, and scalable code that exceeds expectations.
                     </p>
                     <p className="mt-6 text-lg text-gray-300">
-                        Throughout my career, I've worked on a variety of projects, each presenting unique challenges and opportunities for growth.
+                        Throughout my career, I &apos; ve worked on a variety of projects, each presenting unique challenges and opportunities for growth.
                     </p>
                     <Button size="lg" className="font-bold mt-8" color="primary" variant="solid">
                         Contact
