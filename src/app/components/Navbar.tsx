@@ -32,7 +32,6 @@ export default function App() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    console.log("In view:", entry.target.id); // Check which section is in view
                     setActiveSection(entry.target.id); // Update activeSection based on id
                 }
             });
@@ -77,7 +76,7 @@ export default function App() {
                     className="sm:hidden"
                 />
                 <NavbarBrand>
-                    <p className="font-bold text-inherit">Mathis Kräkel {activeSection}</p>
+                    <p className="font-bold text-inherit">Mathis Kräkel</p>
                 </NavbarBrand>
             </NavbarContent>
 
