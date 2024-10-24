@@ -36,6 +36,7 @@ export default function AboutMe() {
         },
     ];
     return (
+        <section id="about">
         <motion.div className="container-fluid mx-auto px-6 md:px-20 dark:bg-default-100/50 py-12 pt-20" id="about">
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
@@ -99,5 +100,6 @@ export default function AboutMe() {
                 </motion.div>
             </div>
         </motion.div>
-    );
+        </section>
+            );
 }
