@@ -1,6 +1,7 @@
 "use client";
 import { Link } from '@nextui-org/react';
 import GithubIcon from "@/app/icons/github"
+import {IconLinkedin} from "@/app/icons/linkedin"
 export default function Footer() {
     return (
         <footer className="bg-background text-gray-400 py-10">
@@ -9,8 +10,7 @@ export default function Footer() {
                     {/* Kontaktinformationen */}
                     <div className="mb-6 md:mb-0">
                         <h4 className="text-lg font-bold text-white">Contact</h4>
-                        <p className="mt-2">Email: <Link href="mailto:mathis@mathiskraekel.de" color="primary">mathis@mathiskraekel.de</Link></p>
-                        <p className="mt-1">Phone: +123 456 7890</p>
+                        <p className="mt-2">Email: <Link href="mailto:mathis@kraekel.com" color="primary">mathis@kraekel.com</Link></p>
                     </div>
 
                     {/* Navigation */}
@@ -29,9 +29,9 @@ export default function Footer() {
                         <Link href="https://github.com/mathis" target="_blank" rel="noopener noreferrer">
                             <GithubIcon className="text-gray-400 hover:text-white" />
                         </Link>
-                        {/*<Link href="https://linkedin.com/in/mathis" target="_blank" rel="noopener noreferrer">*/}
-                        {/*    <FaLinkedin size={24} className="text-gray-400 hover:text-white" />*/}
-                        {/*</Link>*/}
+                        <Link href="https://www.linkedin.com/in/mathis-kr%C3%A4kel-b286b325a/" target="_blank" rel="noopener noreferrer">
+                            <IconLinkedin className="text-gray-400 hover:text-white text-5xl" />
+                        </Link>
                         {/*<Link href="https://twitter.com/mathis" target="_blank" rel="noopener noreferrer">*/}
                         {/*    <FaTwitter size={24} className="text-gray-400 hover:text-white" />*/}
                         {/*</Link>*/}
