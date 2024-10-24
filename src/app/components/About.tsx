@@ -1,6 +1,7 @@
 "use client"
 import { motion } from "framer-motion";
 import { Button, Card, CardHeader, CardBody, Checkbox } from "@nextui-org/react";
+import ScrollLink from "@/app/components/ScrollLink";
 
 export default function AboutMe() {
     const slideInBottom = {
@@ -35,7 +36,7 @@ export default function AboutMe() {
         },
     ];
     return (
-        <motion.div className="container-fluid mx-auto px-6 md:px-20 dark:bg-default-100/50 py-12" id="about">
+        <motion.div className="container-fluid mx-auto px-6 md:px-20 dark:bg-default-100/50 py-12 pt-20" id="about">
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
                 {/* About Me Section mit Slide-in und Zoom von links */}
@@ -57,9 +58,10 @@ export default function AboutMe() {
                     <p className="mt-6 text-lg text-gray-300">
                         Whether it&apos;s building scalable backend systems or crafting smooth frontend user interfaces, I am focused on delivering impactful, efficient, and high-quality solutions.
                     </p>
-                    <Button size="lg" className="font-bold mt-8" color="primary" variant="solid">
+                    <ScrollLink id="contact"><Button size="lg" className="font-bold mt-8" color="primary" variant="solid">
                         Contact
                     </Button>
+                    </ScrollLink>
                 </motion.div>
 
                 {/* Skills Section mit Slide-in und Zoom von rechts */}

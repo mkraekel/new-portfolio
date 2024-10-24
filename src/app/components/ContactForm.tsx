@@ -42,6 +42,7 @@ export default function ContactForm() {
 
     return (
         <motion.div
+            id="contact"
             className="container mx-auto py-16 px-6 md:px-20 bg-background/60 dark:bg-default-100/50"
             initial="hidden"
             animate="visible"

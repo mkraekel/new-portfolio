@@ -68,7 +68,6 @@ export default function Projects() {
                                             <p className="text-gray-400 mb-6">
                                                 {project.description}
                                             </p>
-                                            <h5 className="font-semibold mb-4">Technologies Used</h5>
                                             <ul className="flex flex-wrap gap-2 mb-6">
                                                 {project.technologies.map((tech, index) => (
                                                     <li
