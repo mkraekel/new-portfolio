@@ -23,7 +23,7 @@ export default function AboutMe() {
             skills: [
                 { name: "HTML", level: "Advanced" },
                 { name: "CSS", level: "Advanced" },
-                { name: "JavaScript", level: "Advanced" },
+                { name: "Typescript", level: "Advanced" },
                 { name: "Tailwind CSS", level: "Intermediate" },
                 { name: "Node.js", level: "Advanced" },
                 { name: "Bootstrap", level: "Intermediate" },

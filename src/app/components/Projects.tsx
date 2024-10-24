@@ -17,8 +17,9 @@ export default function Projects() {
     const projects = [
         {
             title: "Einkaufsliste",
-            description: "This project is a web-based music player that showcases various frontend technologies and design principles. It includes a custom audio player, UI design and responsive features.",
-            technologies: ["PHP", "MySQL", "JQuery", "JS", "HTML", "CSS"],
+            subtitle: "",
+            description: "This project was my first big project. I wanted to create an Todo App with shared Lists and User System. I did this project right after my first Udemy course for HTML/PHP/CSS/Bootstrap",
+            technologies: ["PHP", "MySQL", "JQuery", "JS", "HTML", "CSS", "Bootstrap"],
             weblink: "",
             github: "https://github.com/mkraekel/einkaufsliste",
             cardVariant: cardVariantsLeft,
@@ -26,13 +27,24 @@ export default function Projects() {
         },
         {
             title: "SILENT-GEN",
-            description: "This project is a web-based music player that showcases various frontend technologies and design principles. It includes a custom audio player, UI design and responsive features.",
+            subtitle: "unreleased",
+            description: "I did this project for a customer. It's and full working React System with backend API",
             technologies: ["React", "NextUI", "TailwindCSS", "TS", "HTML", "CSS", "Express", "NodeJS"],
-            weblink: "",
+            weblink: "https://cute-babka-1968ed.netlify.app/",
             github: "https://github.com/mkraekel/silent_gen",
             cardVariant: cardVariantsRight,
             flex: "justify-end",
-        }
+        },        {
+            title: "Portfolio",
+            subtitle: "",
+            description: "This is one of my newest project. It's a NextJS Application with React.",
+            technologies: ["React","NextJS", "NextUI", "TailwindCSS", "TS", "HTML", "CSS"],
+            weblink: "https://portfolio-mathiskraekel.netlify.app/",
+            github: "https://github.com/mkraekel/new-portfolio",
+            cardVariant: cardVariantsLeft,
+            flex: "justify-start",
+        },
+
     ]
     return (
         <div className="container mx-auto px-4 py-16 " id="projects">
@@ -64,7 +76,10 @@ export default function Projects() {
                                         </div>
                                         {/* Content Section */}
                                         <div className="flex-1 p-8 pb-0 text-white">
-                                            <h4 className="font-bold text-2xl mb-2">{project.title}</h4>
+                                            <h4 className="font-bold text-2xl mb-2">
+                                                {project.title}
+                                                <span className="text-warning text-sm">{" " + project.subtitle}</span>
+                                            </h4>
                                             <p className="text-gray-400 mb-6">
                                                 {project.description}
                                             </p>
