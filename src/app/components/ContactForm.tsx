@@ -3,6 +3,7 @@ import { Input, Textarea, Button } from '@nextui-org/react';
 import { motion } from "framer-motion";
 import {FormEvent, useState} from "react";
 import sendEmailFromContactForm from "@/app/actions/contact";
+import {IconSendFill} from "@/app/icons/send";
 
 interface FormData {
     name: string;
@@ -84,7 +85,7 @@ export default function ContactForm() {
                     </div>
                     <div className="text-center">
                         <Button type="submit" size="lg" color="secondary" variant="solid">
-                            Send Message
+                            <IconSendFill /> Send Message
                         </Button>
                     </div>
                 </form>

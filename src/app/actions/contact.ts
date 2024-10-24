@@ -10,8 +10,9 @@ interface EmailData {
 export default async function sendEmailFromContactForm(formData: EmailData) {
         const { name, email, message }: EmailData = formData
         // Nodemailer konfigurieren
-    console.log(process.env.EMAIL_PASS)
         const transporter = nodemailer.createTransport({
+            host: "kraekel.com",
+            secure: true,
             auth: {
                 user: process.env.EMAIL_USER, // Deine E-Mail-Adresse
                 pass: process.env.EMAIL_PASS, // Dein Passwort
@@ -34,7 +35,7 @@ export default async function sendEmailFromContactForm(formData: EmailData) {
                 message: "Email successfully sent"
             }
         } catch (error) {
-            // console.error('Fehler beim Senden der E-Mail:', error);
+            console.error('Fehler beim Senden der E-Mail:', error);
             return {
                 ok: false,
                 message: "Error sending the email" + error

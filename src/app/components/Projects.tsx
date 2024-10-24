@@ -9,166 +9,93 @@ export default function Projects() {
         hidden: { opacity: 0, x: -100 },
         visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
     };
-
     const cardVariantsRight = {
         hidden: { opacity: 0, x: 100 },
         visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
     };
-    return (
-        <>
-        <div className="container mx-auto " id="projects">
-            <div className="flex justify-center items-center my-16">
-                <h1 className="font-bold text-3xl">My Projects</h1>
-            </div>
-            {/* Erste Karte von links */}
-            <motion.div
-                className="flex justify-start mb-8"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{once: false, amount: 0.5}}
-                variants={cardVariantsLeft}
-            >
-                <Card
-                    isBlurred
-                    className="border-none bg-background/60 dark:bg-default-100/50 max-w-[1110px] mb-20"
-                    shadow="sm"
-                >
-                    <CardBody className="p-0">
-                        <a target="_blank" href="https://github.com/mkraekel/einkaufsliste">
-                            <GithubIcon className="absolute right-4 bottom-4"></GithubIcon>
-                        </a>
-                        <div className="flex flex-col gap-4 md:flex-row  ">
-                            {/* Linke Seite mit Bild */}
-                            <div className="flex-1 relative md:w-1/2"> {/* Flex-1 für flexible Breite */}
-                                <Image
-                                    alt="Einkaufsliste"
-                                    className="object-cover rounded-none"
-                                    height={300}
-                                    shadow="md"
-                                    src="/Einkaufsliste.png"
-                                    width="100%"
-                                />
-                            </div>
-                            {/* Rechte Seite mit Beschreibung, GitHub-Link und Technologien */}
-                            <div className="flex flex-1  flex-col md:w-1/2 p-2">
-                                <h4 className="font-extrabold text-xl">Einkaufsliste</h4>
-                                <p className="text-gray-300 w-9/12 mt-2 mb-10">This project is a web-based music
-                                    player that showcases
-                                    various frontend technologies and design principles. It includes a custom audio
-                                    player, UI design, and responsive features.</p>
-                                <h4 className="font-bold mt-10">Technologies Used</h4>
-                                <ul className="flex-wrap flex gap-2 ">
-                                    <li className="bg-gray-700 text-center p-3 py-2 rounded-lg shadow-lg">PHP</li>
-                                    <li className="bg-gray-700 text-center p-3 py-2 rounded-lg shadow-lg">MySQL</li>
-                                    <li className="bg-gray-700 text-center p-3 py-2 rounded-lg shadow-lg">JQuery</li>
-                                    <li className="bg-gray-700 text-center p-3 py-2 rounded-lg shadow-lg">JS</li>
-                                    <li className="bg-gray-700 text-center p-3 py-2 rounded-lg shadow-lg">HTML</li>
-                                    <li className="bg-gray-700 text-center p-3 py-2 rounded-lg shadow-lg">CSS</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </CardBody>
-                </Card>
-            </motion.div>
-            <motion.div
-                className="flex justify-end mb-8"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{once: false, amount: 0.5}}
-                variants={cardVariantsRight}
-            ><Card
-                isBlurred
-                className="border-none bg-background/60 dark:bg-default-100/50 max-w-[1110px] mb-20"
-                shadow="sm"
-            >
-                <CardBody className="p-0">
-                    <a target="_blank" href="https://cute-babka-1968ed.netlify.app/"><LinkIcon
-                        className="absolute top-4 text-3xl right-4"></LinkIcon></a>
-                    <a target="_blank" href="https://github.com/mkraekel/silent_gen"><GithubIcon
-                        className="absolute bottom-4 right-4"></GithubIcon></a>
-                    <div className="flex flex-col gap-4 md:flex-row  ">
-                        {/* Linke Seite mit Bild */}
-                        <div className="flex-1 relative md:w-1/2"> {/* Flex-1 für flexible Breite */}
-                            <Image
-                                alt="Album cover"
-                                className="object-cover"
-                                height={300}
-                                shadow="md"
-                                src="/silentgen-front.png"
-                                width="100%"
-                            />
-                        </div>
-                        {/* Rechte Seite mit Beschreibung, GitHub-Link und Technologien */}
-                        <div className="flex flex-1  flex-col md:w-1/2 p-2">
-                            <h4 className="font-extrabold text-xl">SILENT GEN</h4>
-                            <p className="text-gray-300 w-9/12 mt-2 mb-10">This project is a web-based music
-                                player that showcases
-                                various frontend technologies and design principles. It includes a custom audio
-                                player, UI design, and responsive features.</p>
-                            <h4 className="font-bold mt-10">Technologies Used</h4>
-                            <ul className="flex-wrap flex gap-2 ">
-                                <li className="bg-gray-700 text-center p-3 py-2 rounded-lg shadow-lg">React</li>
-                                <li className="bg-gray-700 text-center p-3 py-2 rounded-lg shadow-lg">NextUI</li>
-                                <li className="bg-gray-700 text-center p-3 py-2 rounded-lg shadow-lg">Tailwind
-                                    CSS
-                                </li>
-                                <li className="bg-gray-700 text-center p-3 py-2 rounded-lg shadow-lg">JavaScript</li>
-                            </ul>
-                        </div>
-                    </div>
-                </CardBody>
-            </Card>
-            </motion.div>
-            <motion.div
-                className="flex justify-start mb-8"
-                initial="hidden"
-                whileInView="visible"
-                    viewport={{once: false, amount: 0.5}}
-                    variants={cardVariantsLeft}
-                >
-                    <Card
-                        isBlurred
-                        className="border-none bg-background/60 dark:bg-default-100/50 max-w-[1110px] mb-20"
-                        shadow="sm"
-                    >
-                        <CardBody className="p-0">
-                            <a href="https://github.com/mkraekel/silent_gen"><GithubIcon
-                                className="absolute top-4 right-4"></GithubIcon></a>
 
-                            <div className="flex flex-col gap-4 md:flex-row  ">
-                                {/* Linke Seite mit Bild */}
-                                <div className="flex-1 relative md:w-1/2"> {/* Flex-1 für flexible Breite */}
-                                    <Image
-                                        alt="Album cover"
-                                        className="object-cover"
-                                        height={300}
-                                        shadow="md"
-                                        src="https://nextui.org/images/album-cover.png"
-                                        width="100%"
-                                    />
-                                </div>
-                                {/* Rechte Seite mit Beschreibung, GitHub-Link und Technologien */}
-                                <div className="flex flex-1  flex-col md:w-1/2 p-2">
-                                    <h4 className="font-extrabold text-xl">Project Description</h4>
-                                    <p className="text-gray-300 w-9/12 mt-2 mb-10">This project is a web-based music
-                                        player that showcases
-                                        various frontend technologies and design principles. It includes a custom audio
-                                        player, UI design, and responsive features.</p>
-                                    <h4 className="font-bold mt-10">Technologies Used</h4>
-                                    <ul className="flex-wrap flex gap-2 ">
-                                        <li className="bg-gray-700 text-center p-3 py-2 rounded-lg shadow-lg">React</li>
-                                        <li className="bg-gray-700 text-center p-3 py-2 rounded-lg shadow-lg">NextUI</li>
-                                        <li className="bg-gray-700 text-center p-3 py-2 rounded-lg shadow-lg">Tailwind
-                                            CSS
-                                        </li>
-                                        <li className="bg-gray-700 text-center p-3 py-2 rounded-lg shadow-lg">JavaScript</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </CardBody>
-                    </Card>
-            </motion.div>
+    const projects = [
+        {
+            title: "Einkaufsliste",
+            description: "This project is a web-based music player that showcases various frontend technologies and design principles. It includes a custom audio player, UI design and responsive features.",
+            technologies: ["PHP", "MySQL", "JQuery", "JS", "HTML", "CSS"],
+            weblink: "",
+            github: "https://github.com/mkraekel/einkaufsliste",
+            cardVariant: cardVariantsLeft,
+            flex: "justify-start"
+        },
+        {
+            title: "SILENT-GEN",
+            description: "This project is a web-based music player that showcases various frontend technologies and design principles. It includes a custom audio player, UI design and responsive features.",
+            technologies: ["React", "NextUI", "TailwindCSS", "TS", "HTML", "CSS", "Express", "NodeJS"],
+            weblink: "",
+            github: "https://github.com/mkraekel/silent_gen",
+            cardVariant: cardVariantsRight,
+            flex: "justify-end",
+        }
+    ]
+    return (
+        <div className="container mx-auto px-4 py-16 " id="projects">
+            <div className="text-center mb-12">
+                <h1 className="font-bold text-4xl text-white">My Projects</h1>
+            </div>
+            <div className="flex flex-col gap-12">
+                {/* Project Card */}
+                {projects.map(project => {
+                    return (
+                        <motion.div
+                            key={project.title}
+                            className={"flex " + project.flex}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{once: false, amount: 0.5}}
+                            variants={project.cardVariant}
+                        >
+                            <Card className="max-w-5xl bg-gray-800 rounded-lg shadow-xl overflow-hidden">
+                                <CardBody className="p-0">
+                                    <div className="flex flex-col md:flex-row">
+                                        {/* Image Section */}
+                                        <div className="flex-1 h-full">
+                                            <Image
+                                                alt={project.title}
+                                                className="object-cover w-full h-full"
+                                                src={project.title + ".png"}
+                                            />
+                                        </div>
+                                        {/* Content Section */}
+                                        <div className="flex-1 p-8 pb-0 text-white">
+                                            <h4 className="font-bold text-2xl mb-2">{project.title}</h4>
+                                            <p className="text-gray-400 mb-6">
+                                                {project.description}
+                                            </p>
+                                            <h5 className="font-semibold mb-4">Technologies Used</h5>
+                                            <ul className="flex flex-wrap gap-2 mb-6">
+                                                {project.technologies.map((tech, index) => (
+                                                    <li
+                                                        key={index}
+                                                        className="bg-gray-700 text-center p-2 rounded-lg shadow-md"
+                                                    >
+                                                        {tech}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                        <div
+                                            className="flex flex-row items-end md:flex-col p-8 pt-0 md:pt-8 justify-between">
+                                            <a href={project.github} target="_blank">
+                                                <GithubIcon className="text-2xl hover:text-gray-400 transition-colors"/>
+                                            </a>
+                                            <a href={project.weblink} target="_blank">
+                                                <LinkIcon
+                                                    className="text-3xl"></LinkIcon></a>
+                                        </div>
+                                    </div>
+                                </CardBody>
+                            </Card>
+                        </motion.div>
+                    )
+                })}
+            </div>
         </div>
-        </>
     );
 }
