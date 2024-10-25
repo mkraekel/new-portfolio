@@ -28,8 +28,8 @@ export default function ContactForm() {
         try {
             const result = await sendEmailFromContactForm(formData)
             if (result.ok) {
-                setStatus('E-Mail wurde erfolgreich gesendet!');
-                e.currentTarget.reset(); // Formular zurücksetzen
+                setStatus('Request successfully send!');
+                e.currentTarget?.reset()
             } else {
                 setStatus(result.message);
             }

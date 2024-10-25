@@ -11,7 +11,8 @@ export default async function sendEmailFromContactForm(formData: EmailData) {
         const { name, email, message }: EmailData = formData
         // Nodemailer konfigurieren
         const transporter = nodemailer.createTransport({
-            host: "kraekel.com",
+            service: 'gmail',
+            host: 'smtp.gmail.com',
             secure: true,
             auth: {
                 user: process.env.EMAIL_USER, // Deine E-Mail-Adresse
