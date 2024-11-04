@@ -38,7 +38,9 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="text-center mt-10">
-                    <p className="text-sm text-gray-600">&copy; {new Date().getFullYear()} Mathis Krakel. All rights reserved.</p>
+                    <p className="text-sm text-gray-600">&copy; {new Date().getFullYear()} Mathis Krakel. All rights
+                        reserved.</p>
+                    <p className="mt-2"><Link href="/impressum" color="primary">Imprint</Link></p>
                 </div>
             </div>
         </footer>
