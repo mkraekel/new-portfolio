@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import {NextUIProvider} from "@nextui-org/react";
 import { Montserrat } from 'next/font/google'
+import SEO from "@/app/components/Seo";
 
 const roboto = Montserrat({
     weight: '400',
@@ -31,6 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+    <SEO />
       <body
         className={`${geistSans.variable} ${roboto.className} antialiased`}
       >
