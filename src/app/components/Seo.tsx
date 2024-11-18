@@ -7,7 +7,7 @@ export default function SEO() {
             <title>Mathis Kraekel - Software Developer Portfolio</title>
             <meta
                 name="description"
-                content="Explore Mathis Kraekel's portfolio showcasing expertise in TypeScript, Node.js, React, Firebase, and more. Dive into cutting-edge web development projects and solutions."
+                content="Explore Mathis Kraekel's portfolio showcasing expertise in sowftware development! Dive into cutting-edge web development projects and solutions."
             />
             <meta
                 name="keywords"
@@ -18,7 +18,7 @@ export default function SEO() {
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
             {/* Open Graph / Social Media Metadata */}
-            <meta property="og:title" content="Mathis Kraekel - Software Developer Portfolio" />
+            <meta property="og:title" content="Mathis Kraekel - Software Developer" />
             <meta
                 property="og:description"
                 content="Discover Mathis Kraekel's skills, projects, and expertise in web and software development, including Next.js, Prisma, and modern tech stacks."
@@ -27,15 +27,15 @@ export default function SEO() {
             <meta property="og:url" content="https://mathiskraekel.de" />
             <meta property="og:type" content="website" />
 
-            {/* Twitter Metadata */}
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content="Mathis Kraekel - Software Developer Portfolio" />
-            <meta
-                name="twitter:description"
-                content="Discover Mathis Kraekel's skills, projects, and expertise in web and software development, including Next.js, Prisma, and modern tech stacks."
-            />
-            <meta name="twitter:image" content="https://mathiskraekel.de/preview-image.jpg" />
-            <meta name="twitter:creator" content="@MathisKraekel" />
+            {/*/!* Twitter Metadata *!/*/}
+            {/*<meta name="twitter:card" content="summary_large_image" />*/}
+            {/*<meta name="twitter:title" content="Mathis Kraekel - Software Developer Portfolio" />*/}
+            {/*<meta*/}
+            {/*    name="twitter:description"*/}
+            {/*    content="Discover Mathis Kraekel's skills, projects, and expertise in web and software development, including Next.js, Prisma, and modern tech stacks."*/}
+            {/*/>*/}
+            {/*<meta name="twitter:image" content="https://mathiskraekel.de/preview-image.jpg" />*/}
+            {/*<meta name="twitter:creator" content="@MathisKraekel" />*/}
 
             {/* Favicon */}
             <link rel="icon" href="/favicon.ico" />
