@@ -26,7 +26,7 @@ export default function Footer() {
 
                     {/* Social Media Icons */}
                     <div className="flex space-x-4">
-                        <Link href="https://github.com/mathis" target="_blank" rel="noopener noreferrer">
+                        <Link href="https://github.com/mkraekel" target="_blank" rel="noopener noreferrer">
                             <GithubIcon className="text-gray-400 hover:text-white" />
                         </Link>
                         <Link href="https://www.linkedin.com/in/mathis-kr%C3%A4kel-b286b325a/" target="_blank" rel="noopener noreferrer">
