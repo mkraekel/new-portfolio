@@ -16,7 +16,7 @@ export default function Projects() {
 
     const projects = [
         {
-            title: "Einkaufsliste",
+            title: "shopping list",
             subtitle: "",
             description: "This project was my first big project. I wanted to create an Todo App with shared Lists and User System. I did this project right after my first Udemy course for HTML/PHP/CSS/Bootstrap",
             technologies: ["PHP", "MySQL", "JQuery", "JS", "HTML", "CSS", "Bootstrap"],
