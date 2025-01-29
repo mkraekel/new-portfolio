@@ -4,24 +4,24 @@ export default function SEO() {
     return (
         <Head>
             {/* Primary Meta Tags */}
-            <title>Mathis Kraekel - Software Developer Portfolio</title>
+            <title>Mathis Kräkel - Software Developer </title>
             <meta
                 name="description"
-                content="Explore Mathis Kraekel's portfolio showcasing expertise in sowftware development! Dive into cutting-edge web development projects and solutions."
+                content="Softwareentwickler mit Fokus auf Webentwicklung und Backend-Architektur mit Next.js, React, TypeScript und Node.js. Maßgeschneiderte Lösungen für skalierbare Webanwendungen."
             />
             <meta
                 name="keywords"
-                content="Mathis Kraekel, software developer, TypeScript, Node.js, React, Firebase, Next.js, web development, portfolio, backend, frontend"
+                content="Mathis Kraekel,Mathis Kräkel, Softwareentwickler,  Webentwicklung, Freelancer, software developer, TypeScript, Node.js, React, Firebase, Next.js, web development, web app development, backend, frontend"
             />
             <meta name="author" content="Mathis Kraekel" />
             <meta name="robots" content="index, follow" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
             {/* Open Graph / Social Media Metadata */}
-            <meta property="og:title" content="Mathis Kraekel - Software Developer" />
+            <meta property="og:title" content="Mathis Kräkel - Software Developer" />
             <meta
                 property="og:description"
-                content="Discover Mathis Kraekel's skills, projects, and expertise in web and software development, including Next.js, Prisma, and modern tech stacks."
+                content="Discover Mathis Kraekel's skills, projects, and expertise in web and software development, including Next.js, and modern tech stacks."
             />
             <meta property="og:image" content="https://mathiskraekel.de/preview-image.jpg" />
             <meta property="og:url" content="https://mathiskraekel.de" />
