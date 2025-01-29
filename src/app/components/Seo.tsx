@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 export default function SEO() {
     return (
-        <Head>
+                <Head>
             {/* Primary Meta Tags */}
             <title>Mathis Kraekel - Software Developer Portfolio</title>
             <meta
@@ -38,7 +38,7 @@ export default function SEO() {
             {/*<meta name="twitter:creator" content="@MathisKraekel" />*/}
 
             {/* Favicon */}
-            <link rel="icon" href="/favicon.ico" />
+            <link rel="icon" href="/src/app/favicon.ico" />
         </Head>
     );
 }

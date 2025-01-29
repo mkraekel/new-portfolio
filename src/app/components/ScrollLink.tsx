@@ -1,26 +1,29 @@
-"use client"
-import Link from 'next/link';
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
 interface ScrollLinkProps {
     id: string;
-    children: ReactNode; // Use ReactNode for children to allow any valid React child
+    children: ReactNode;
+    color: string;
 }
 
-const ScrollLink: React.FC<ScrollLinkProps> = ({ id, children }) => {
-    const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+const ScrollLink: React.FC<ScrollLinkProps> = ({ id, children, color }) => {
+    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
 
         const element = document.getElementById(id);
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            element.scrollIntoView({ behavior: "smooth" });
         }
     };
 
     return (
-        <Link href={`#${id}`} passHref>
-            <div onClick={handleClick}>{children}</div>
-        </Link>
+        <a
+            href={`#${id}`}
+            onClick={handleClick}
+            className={`px-4 py-3 bg-primary-200 flex rounded-lg ${color}`}
+        >
+            {children}
+        </a>
     );
 };
 

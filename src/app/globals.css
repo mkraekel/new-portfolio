@@ -67,3 +67,14 @@ body {
     border-radius: 50%;
   }
 }
+
+data-[active=true]:text-primary {
+  color: var(--primary);
+}
+
+data-[active=true]:after {
+  background-color: var(--primary);
+}
+a:hover {
+  color: var(--primary);
+}

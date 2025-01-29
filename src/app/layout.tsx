@@ -33,7 +33,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${roboto.className} antialiased`}
       >
       <NextUIProvider>
-          <main className={"purple-dark text-foreground bg-background"}>
+          <main className={"dark text-foreground bg-background"}>
               {children}
           </main>
       </NextUIProvider>
