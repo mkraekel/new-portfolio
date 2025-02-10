@@ -14,9 +14,9 @@ export default function Contact() {
         e.preventDefault();
         const formData = new FormData(e.target);
         const data = {
-            name: formData.get("name"),
-            email: formData.get("email"),
-            message: formData.get("message"),
+            name: formData.get("name") || "",
+            email: formData.get("email")|| "",
+            message: formData.get("message") || "",
         };
         await sendEmailFromContactForm(data)
         setStatus('Message sent successfully!');

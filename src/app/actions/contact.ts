@@ -1,18 +1,13 @@
 "use server"
 import nodemailer from 'nodemailer';
 
-interface EmailData {
-    name: string;
-    email: string;
-    message: string;
-}
 
 export default async function sendEmailFromContactForm(formData: {
-    name: string | File | null;
-    email: string | File | null;
-    message: string | File | null
+    name: FormDataEntryValue ;
+    email: FormDataEntryValue ;
+    message: FormDataEntryValue
 }) {
-        const { name, email, message }: EmailData = formData
+        const { name, email, message } = formData
         // Nodemailer konfigurieren
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -25,10 +20,10 @@ export default async function sendEmailFromContactForm(formData: {
         });
 
         // E-Mail-Inhalt definieren
-        const mailOptions = {
+        const mailOptions:any = {
             from: email,
             to: process.env.EMAIL_USER,
-            subject: `Neue Kontaktanfrage von ${name}`,
+            subject: `Neue Kontaktanfrage von ${name.toString()}`,
             text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
         };
 
