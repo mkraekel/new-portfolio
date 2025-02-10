@@ -1,26 +1,40 @@
 "use client"
-import React, {useState} from "react";
+import React, {FormEvent, useState} from "react";
 import {Card, CardContent} from "@/components/ui/card";
 import {Input} from "@/components/ui/input";
 import {Textarea} from "@/components/ui/textarea";
 import {Button} from "@/components/ui/button";
 import {Mail, Send} from "lucide-react";
 import sendEmailFromContactForm from "@/app/actions/contact";
-
+interface FormData {
+    name: string;
+    email: string;
+    message: string;
+}
 export default function Contact() {
     const [status, setStatus] = useState("");
 
-    const handleSubmit = async (e: { preventDefault: () => void; target: HTMLFormElement | undefined; }) => {
+    async function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        const formData = new FormData(e.target);
-        const data = {
-            name: formData.get("name") || "",
-            email: formData.get("email")|| "",
-            message: formData.get("message") || "",
+        const formData: FormData = {
+            name: (e.currentTarget.elements.namedItem("name") as HTMLInputElement).value,
+            email: (e.currentTarget.elements.namedItem("email") as HTMLInputElement).value,
+            message: (e.currentTarget.elements.namedItem("message") as HTMLTextAreaElement).value,
         };
-        await sendEmailFromContactForm(data)
-        setStatus('Message sent successfully!');
-    };
+        console.log(formData)
+        try {
+            const result = await sendEmailFromContactForm(formData)
+            if (result.ok) {
+                setStatus('Request successfully send!');
+                e.currentTarget?.reset()
+            } else {
+                setStatus(result.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            setStatus("Error sending the email");
+        }
+    }
 
     return (
         <section id="contact" className="py-24 bg-muted/50">

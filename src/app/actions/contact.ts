@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 
 export default async function sendEmailFromContactForm(formData: {
     name: FormDataEntryValue ;
-    email: FormDataEntryValue ;
+    email: string ;
     message: FormDataEntryValue
 }) {
         const { name, email, message } = formData
@@ -20,7 +20,7 @@ export default async function sendEmailFromContactForm(formData: {
         });
 
         // E-Mail-Inhalt definieren
-        const mailOptions:any = {
+        const mailOptions = {
             from: email,
             to: process.env.EMAIL_USER,
             subject: `Neue Kontaktanfrage von ${name.toString()}`,
