@@ -10,7 +10,7 @@ import sendEmailFromContactForm from "@/app/actions/contact";
 export default function Contact() {
     const [status, setStatus] = useState("");
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: { preventDefault: () => void; target: HTMLFormElement | undefined; }) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const data = {
@@ -20,7 +20,6 @@ export default function Contact() {
         };
         await sendEmailFromContactForm(data)
         setStatus('Message sent successfully!');
-        e.target.reset();
     };
 
     return (
@@ -34,7 +33,7 @@ export default function Contact() {
 
                     <Card className="bg-[#dbe9f9] ">
                         <CardContent className="pt-6">
-                            <form onSubmit={handleSubmit} className="space-y-6">
+                            <form onSubmit={() =>handleSubmit} className="space-y-6">
                                 <div className="space-y-3">
                                     <Input
                                         name="name"
