@@ -14,10 +14,7 @@ export default function Page() {
                         65307 Bad Schwalbach</p>
 
                     <h2>Kontakt</h2>
-                    <p>Telefon: &#91;Telefonnummer&#93;<br/>
-                        E-Mail: mathis@kraekel.com</p>
-
-                    <p>Quelle: <a href="https://www.e-recht24.de">e-recht24.de</a></p>
+                    <p>E-Mail: mathis@kraekel.com</p>
                 </div>
             </div>
             <div className="container w-8/12 mx-auto pb-0 h-screen flex flex-col pt-20 items-center">

@@ -1,75 +1,115 @@
+"use client"
+import React, { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import {
+    ChevronUp,
+} from 'lucide-react';
+import { motion } from 'framer-motion';
+import Contact from "./components/ContactForm"
+import Services from "./components/Services"
+import Footer from "./components/Footer"
+import About from "./components/About"
 import Navigation from "@/app/components/Navbar";
-import AboutMe from "@/app/components/About";
-import ScrollLink from "@/app/components/ScrollLink";
-import { motion } from "framer-motion";
-import ContactForm from "@/app/components/ContactForm";
-import Footer from "@/app/components/Footer";
-import Typewriter from 'typewriter-effect';
-import Services from "@/app/components/Services";
+import Testimonials from "./components/Testimonials";
 
-export default function Home() {
-    // Define animation effects
-    const textVariant = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-    };
+const Hero = () => {
+    return (
+        <section id="home" className="min-h-screen flex items-center justify-center pt-16 bg-[#dbe9f9] relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 w-full h-full pointer-events-none">
+                <div className="absolute w-48 h-48 bg-[#b9d4f3] rounded-full -top-24 -left-24
+            md:-top-24 md:-left-24
+            sm:w-36 sm:h-36
+            xs:w-24 xs:h-24 xs:-top-12 xs:-left-12" />
+                <div className="absolute w-64 h-64 bg-[#75aae7] rounded-full
+            top-1/2 -right-32
+            md:-right-32
+            sm:w-48 sm:h-48 sm:-right-24
+            xs:w-36 xs:h-36 xs:-right-16" />
+                <div className="absolute w-32 h-32 bg-[#b9d4f3] rounded-full
+            bottom-24 left-24
+            md:bottom-24 md:left-24
+            sm:w-24 sm:h-24 sm:bottom-16 sm:left-16
+            xs:w-16 xs:h-16 xs:bottom-12 xs:left-8" />
+            </div>
 
-    const buttonVariant = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut", delay: 0.5 } },
-    };
+            {/* Content Container */}
+            <div className="relative z-10 container mx-auto px-4">
+                {/* Main Content */}
+                <div className="relative text-center">
+                    <span className="text-sm font-medium text-[#1f5cab] mb-4 block ">
+                        Softwareentwickler
+                    </span>
+
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#1f5cab] mb-6">
+                        Mathis Kräkel
+                    </h1>
+
+                    <p className="text-lg md:text-xl text-[#3982dc] max-w-2xl mx-auto mb-12 leading-relaxed">
+                        Ein erfahrener Softwareentwickler, der elegante Lösungen entwickelt und beeindruckende digitale Erlebnisse schafft.
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row justify-center gap-4 items-center">
+                        <Button
+                            size="lg"
+                            className="bg-[#1f5cab] hover:bg-[#3982dc] text-white px-8 h-12"
+                            asChild
+                        >
+                            <a href="#about">Erfahre mehr</a>
+                        </Button>
+                        <Button
+                            size="lg"
+                            variant="outline"
+                            className="border-2 border-[#75aae7] hover:border-[#3982dc] hover:bg-[#b9d4f3] h-12 px-8 text-[#1f5cab]"
+                            asChild
+                        >
+                        </Button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    );
+};
+
+const ScrollToTop = ({ isVisible }) => {
+    return (
+        <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className={`fixed bottom-8 right-8 p-3 bg-primary text-primary-foreground rounded-full shadow-lg transition-all duration-300 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+        >
+            <ChevronUp className="w-6 h-6" />
+        </button>
+    );
+};
+
+// Main App Component
+export default function App() {
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [showScrollTop, setShowScrollTop] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+            setShowScrollTop(window.scrollY > 500);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
-        <>
-            <Navigation />
-            <section id="home">
-                <div className="container mx-auto pb-0 h-screen flex flex-col pt-20 items-center">
-                    <div className="flex flex-col justify-center items-center text-center gap-8 mb-20 mt-20">
-                        {/* Text animation */}
-                        <motion.div
-                            className="flex-1"
-                            initial="hidden"
-                            animate="visible"
-                            variants={textVariant}
-                        >
-                            <h1 className="text-5xl md:text-6xl font-extrabold text-foreground">
-                                <Typewriter
-                                    options={{
-                                        strings: [`HEY, I&apos;M <span style="color: primary-400">MATHIS</span>`],
-                                        autoStart: true,
-                                        loop: true,
-                                    }}
-                                />
-                            </h1>
-                            <p className="mt-4 text-lg text-foreground/80 max-w-xl">
-                                A skilled developer focused on building impactful projects and creating beautiful,
-                                functional web experiences.
-                            </p>
-                        </motion.div>
-                    </div>
-                    {/* Button animation */}
-                    <motion.div
-                        className="mt-10"
-                        initial="hidden"
-                        animate="visible"
-                        variants={buttonVariant}
-                    >
-                        <ScrollLink id="about" children={undefined} color={""}>
-                        {/*<Button*/}
-                        {/*    size="lg"*/}
-                        {/*    className="font-bold text-secondary bg-primary-200 hover:bg-primary-100"*/}
-                        {/*>*/}
-                            Learn More
-                        {/*</Button>*/}
-                        </ScrollLink>
-                    </motion.div>
-                </div>
-            </section>
-            <AboutMe />
-            {/*<Projects />*/}
-            <Services />
-            <ContactForm />
-            <Footer />
-        </>
+        <div className="min-h-screen bg-background text-foreground">
+            <Navigation isScrolled={isScrolled}/>
+            <Hero/>
+            <About/>
+            <Services/>
+            <Testimonials/>
+            <Contact/>
+            <Footer/>
+            <ScrollToTop isVisible={showScrollTop}/>
+        </div>
     );
 }

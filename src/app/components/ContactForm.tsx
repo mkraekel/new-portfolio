@@ -1,104 +1,87 @@
-"use client";
-import { Input, Textarea, Button } from '@nextui-org/react';
-import { motion } from "framer-motion";
-import { FormEvent, useState } from "react";
+"use client"
+import React, {useState} from "react";
+import {Card, CardContent} from "@/components/ui/card";
+import {Input} from "@/components/ui/input";
+import {Textarea} from "@/components/ui/textarea";
+import {Button} from "@/components/ui/button";
+import {Mail, Send} from "lucide-react";
 import sendEmailFromContactForm from "@/app/actions/contact";
-import { IconSendFill } from "@/app/icons/send";
 
-interface FormData {
-    name: string;
-    email: string;
-    message: string;
-}
+export default function Contact() {
+    const [status, setStatus] = useState("");
 
-export default function ContactForm() {
-    const [status, setStatus] = useState<string | null>(null);
-
-    const formVariant = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const data = {
+            name: formData.get("name"),
+            email: formData.get("email"),
+            message: formData.get("message"),
+        };
+        await sendEmailFromContactForm(data)
+        setStatus('Message sent successfully!');
+        e.target.reset();
     };
 
-    async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-        e.preventDefault();
-        const formData: FormData = {
-            name: (e.currentTarget.elements.namedItem("name") as HTMLInputElement).value,
-            email: (e.currentTarget.elements.namedItem("email") as HTMLInputElement).value,
-            message: (e.currentTarget.elements.namedItem("message") as HTMLTextAreaElement).value,
-        };
-        try {
-            const result = await sendEmailFromContactForm(formData);
-            if (result.ok) {
-                setStatus('Request successfully sent!');
-                e.currentTarget?.reset();
-            } else {
-                setStatus(result.message);
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            setStatus("Error sending the email");
-        }
-    }
-
     return (
-        <motion.div
-            id="contact"
-            className="container mx-auto py-16 px-6 md:px-20 "
-            initial="hidden"
-            animate="visible"
-            variants={formVariant}
-        >
-            <div className="text-center mb-12">
-                <h2 className="text-5xl font-extrabold text-foreground">Contact Me</h2>
-                <p className="mt-4 text-lg text-gray-200">
-                    Feel free to reach out if you have any questions or want to collaborate.
-                </p>
-            </div>
-            <div className="max-w-2xl mx-auto bg-background p-8 rounded-lg shadow-lg text-white">
-                <span className="text-warning">{status?.toString()}</span>
-                <form onSubmit={handleSubmit}>
-                    <div className="mb-6">
-                        <Input
-                            name="name"
-                            fullWidth
-                            label="Your Name"
-                            variant="flat"
-                            required
-                        />
-                    </div>
-                    <div className="mb-6">
-                        <Input
-                            name="email"
-                            label="Your Email"
-                            type="email"
-                            required
-                        />
-                    </div>
-                    <div className="mb-6">
-                        <Textarea
-                            name="message"
-                            fullWidth
-                            label="Message"
-                            placeholder="Write your message"
-                            minRows={4}
-                            required
-                            classNames={{ input: 'text-foreground' }}
-                        />
-                    </div>
-                    <div className="text-center">
-                        <Button
-                            type="submit"
-                            size="lg"
-                            color="secondary"
-                            variant="solid"
-                            className="transition-all bg-primary duration-300 transform hover:scale-105 hover:bg-primary hover:shadow-xl hover:rotate-3"
+        <section id="contact" className="py-24 bg-muted/50">
+            <div className="container md:px-32 mx-auto">
+                <div className="max-w-xl mx-auto text-center">
+                    <h2 className="text-3xl font-bold mb-4">Kontaktieren Sie mich</h2>
+                    <p className="text-muted-foreground mb-8">
+                        Haben Sie ein Projekt im Sinn oder möchten Sie zusammenarbeiten? Ich freue mich von Ihnen zu hören.
+                    </p>
+
+                    <Card className="bg-[#dbe9f9] ">
+                        <CardContent className="pt-6">
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                <div className="space-y-3">
+                                    <Input
+                                        name="name"
+                                        placeholder="Ihr Name"
+                                        required
+                                        className={"rounded-sm border-primary p-2"}
+                                    />
+                                </div>
+                                <div className="space-y-3">
+                                    <Input
+                                        name="email"
+                                        type="email"
+                                        placeholder="Ihre E-Mail"
+                                        required
+                                        className={"rounded-sm border-primary p-2"}
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <Textarea
+                                        name="message"
+                                        placeholder="Ihre Nachricht"
+                                        className="min-h-[150px] text-black rounded-sm border-primary p-2"
+                                        required
+
+                                    />
+                                </div>
+                                {status && (
+                                    <p className="text-sm text-primary">{status}</p>
+                                )}
+                                {status !== "Message sent successfully!" && (<Button type="submit" className="w-full">
+                                    <Send className="w-4 h-4 mr-2" /> Nachricht senden
+                                </Button>)}
+                            </form>
+                        </CardContent>
+                    </Card>
+
+                    <div className="mt-12 flex justify-center gap-8">
+                        <a
+                            href="mailto:mathis@kraekel.com"
+                            className="flex items-center text-muted-foreground hover:text-primary transition-colors"
                         >
-                            <IconSendFill className="mr-2"/> Send Message
-                        </Button>
+                            <Mail className="w-5 h-5 mr-2" />
+                            mathis@kraekel.com
+                        </a>
                     </div>
-                </form>
+                </div>
             </div>
-            <hr  />
-        </motion.div>
+        </section>
     );
-}
+};

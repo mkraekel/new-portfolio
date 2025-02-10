@@ -1,4 +1,4 @@
-import { Card, CardBody, Image } from "@nextui-org/react";
+import { Card, CardBody, Image } from "@heroui/react";
 import { motion } from "framer-motion";
 import GithubIcon from "@/app/icons/github";
 import LinkIcon from "@/app/icons/link";

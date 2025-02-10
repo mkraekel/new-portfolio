@@ -1,108 +1,120 @@
-"use client";
-import { motion } from "framer-motion";
-import { Button, Card, CardHeader, CardBody, Checkbox } from "@nextui-org/react";
-import ScrollLink from "@/app/components/ScrollLink";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Github, Linkedin, Code2, Bot, Database, Globe } from "lucide-react";
+import React from "react";
 
-export default function AboutMe() {
-    const slideInBottom = {
-        hidden: { opacity: 0, y: 100 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    };
-    const fadeInLeft = {
-        hidden: { opacity: 0, x: -50 },
-        visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
-    };
-
-    const fadeInRight = {
-        hidden: { opacity: 0, y: 50 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    };
-    const skillsData = [
+export default function About() {
+    const skills = [
         {
-            category: "Full Stack Development",
-            skills: [
-                { name: "HTML", level: "Advanced" },
-                { name: "CSS", level: "Advanced" },
-                { name: "Typescript", level: "Advanced" },
-                { name: "Tailwind CSS", level: "Intermediate" },
-                { name: "Node.js", level: "Advanced" },
-                { name: "Bootstrap", level: "Intermediate" },
-                { name: "Git", level: "Advanced" },
-                { name: "React", level: "Advanced" },
-                { name: "Express JS", level: "Advanced" },
-                { name: "Firebase", level: "Advanced" },
-                { name: "SQL", level: "Advanced" },
-            ],
+            category: "Frontend",
+            items: ["React", "Next.js", "TypeScript", "TailwindCSS"],
+            icon: <Code2 className="w-4 h-4 text-[#3982dc]" />
         },
+        {
+            category: "Backend",
+            items: ["Node.js", "Express", "REST APIs", "GraphQL"],
+            icon: <Bot className="w-4 h-4 text-[#3982dc]" />
+        },
+        {
+            category: "Database & Cloud",
+            items: ["Firebase", "BigQuery", "Google Cloud", "MySQL"],
+            icon: <Database className="w-4 h-4 text-[#3982dc]" />
+        },
+        {
+            category: "Tools & Others",
+            items: ["Git", "Jira", "Confluence", "Bitbucket"],
+            icon: <Globe className="w-4 h-4 text-[#3982dc]" />
+        }
     ];
+
     return (
-        <section id="about">
-            <motion.div className="container-fluid mx-auto px-6 md:px-20 bg-primary-200 py-12 pt-20" id="about">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-                    {/* About Me Section mit Slide-in und Zoom von links */}
-                    <motion.div
-                        className="text-white"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: false, amount: 0.5 }}
-                        variants={fadeInLeft}
-                    >
-                        <h3 className="text-4xl font-bold mb-6 text-foreground">Know About Me!</h3>
-                        <p className="text-lg text-gray-300">
-                            Hey! I&apos;m Mathis, a <span className="text-white font-bold">dedicated software engineer</span> and a student working toward my Abitur. I currently work at Seibert Group, where I apply my skills in software development while learning something new every day.
-                        </p>
-                        <p className="mt-6 text-lg text-gray-300">
-                            My experience spans working with <strong>Node.js, TypeScript, React, Next.js</strong>, and more. At work, I&apos;ve gained deep insights into systems like <strong>Atlassian tools (Jira, Confluence, Bitbucket)</strong>, Google Cloud, Firebase, and BigQuery. I&apos;ve also built tools like a Telegram bot for managing work hours using the Telegram API.
-                        </p>
-                        <p className="mt-6 text-lg text-gray-300">
-                            Whether it&apos;s building scalable backend systems or crafting smooth frontend user interfaces, I am focused on delivering impactful, efficient, and high-quality solutions.
-                        </p>
-                        <div className="flex mt-5">
-                            <ScrollLink id="contact" color={"bg-white text-primary-200 text-bold hover:text-black "}>
-                                Contact
-                        </ScrollLink>
+        <section id="about" className="py-24 bg-[#dbe9f9]">
+            <div className="container md:px-32 mx-auto">
+                <div className="grid lg:grid-cols-2 gap-12 items-start">
+                    <div className="space-y-8">
+                        <div>
+                            <h2 className="text-3xl font-bold mb-2 text-[#1f5cab]">Über mich</h2>
+                            <div className="h-1 w-20 bg-[#75aae7] rounded-full" />
                         </div>
-                    </motion.div>
 
-                    {/* Skills Section mit Slide-in und Zoom von rechts */}
-                    <motion.div
-                        className="text-white flex flex-col items-center"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: false, amount: 0.5 }}
-                        variants={fadeInRight}
-                    >
-                        <h3 className="text-4xl font-bold mb-6 text-left text-foreground">My Skills</h3>
-
-                        <div className="grid gap-8 w-full max-w-4xl">
-                            {skillsData.map((category, index) => (
-                                <Card key={index} className="p-6 rounded-lg shadow-md bg-back md:w-8/12 mx-auto">
-                                    <CardHeader>
-                                        <h4 className="text-2xl font-semibold text-foreground">{category.category}</h4>
-                                    </CardHeader>
-                                    <CardBody>
-                                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                                            {category.skills.map((skill, i) => (
-                                                <div key={i} className="flex flex-col items-start rounded-md shadow-sm">
-                                                    <Checkbox
-                                                        defaultSelected
-                                                        color="secondary"
-                                                        radius="full"
-                                                        style={{
-                                                                color: '#000', // Schwarz für das Häkchen
-                                                        }}
-                                                    />                                                    <span className="text-lg font-medium text-foreground">{skill.name}</span>
-                                                    <span className="text-sm text-gray-500">{skill.level}</span>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </CardBody>
-                                </Card>
-                            ))}
+                        <div className="space-y-4 text-[#3982dc]">
+                            <p className="text-lg">
+                                Hey! Ich bin Mathis, ein <span className="text-[#1f5cab] font-medium">engagierter Softwareentwickler</span> und
+                                Schüler auf dem Weg zum Abitur. Derzeit arbeite ich bei der Seibert Group, wo ich
+                                meine Fähigkeiten in der Softwareentwicklung kontinuierlich erweitere.
+                            </p>
+                            <p className="text-lg">
+                                Meine Expertise umfasst die Arbeit mit <span className="text-[#1f5cab] font-medium">Node.js, TypeScript,
+                                React und Next.js</span>. Ich habe wertvolle Erfahrungen mit Atlassian-Tools, Google Cloud,
+                                Firebase und BigQuery gesammelt.
+                            </p>
+                            <p className="text-lg">
+                                Ob bei der Entwicklung skalierbarer Backend-Systeme oder der Gestaltung intuitiver Benutzeroberflächen -
+                                ich konzentriere mich darauf, qualitativ hochwertige und effiziente Lösungen zu liefern, die einen echten Mehrwert schaffen.
+                            </p>
                         </div>
-                    </motion.div>
+
+                        <div className="flex gap-4 pt-4">
+                            <Button
+                                variant="outline"
+                                asChild
+                                className="bg-[#1f5cab] hover:bg-[#3982dc] text-white px-4 h-10"
+                            >
+                                <a
+                                    href="https://github.com/mkraekel"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center"
+                                >
+                                    <Github className="w-4 h-4 mr-2" /> GitHub
+                                </a>
+                            </Button>
+                            <Button
+                                variant="outline"
+                                asChild
+                                className="bg-[#1f5cab] hover:bg-[#3982dc] text-white px-8 h-10"
+
+                            >
+                                <a
+                                    href="https://www.linkedin.com/in/mathis-kräkel-b286b325a/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center"
+                                >
+                                    <Linkedin className="w-4 h-4 mr-2" /> LinkedIn
+                                </a>
+                            </Button>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {skills.map((category, index) => (
+                            <Card key={index} className="bg-white border-2 border-[#b9d4f3] hover:border-[#3982dc] transition-colors">
+                                <CardContent className="p-6">
+                                    <div className="flex items-center gap-2 mb-4">
+                                        {category.icon}
+                                        <h3 className="font-semibold text-[#1f5cab]">
+                                            {category.category}
+                                        </h3>
+                                    </div>
+                                    <div className="flex flex-wrap gap-2">
+                                        {category.items.map((skill, idx) => (
+                                            <Badge
+                                                key={idx}
+                                                variant="secondary"
+                                                className="bg-[#dbe9f9] hover:bg-[#b9d4f3] text-[#1f5cab]"
+                                            >
+                                                {skill}
+                                            </Badge>
+                                        ))}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
                 </div>
-            </motion.div>
+            </div>
         </section>
     );
 }

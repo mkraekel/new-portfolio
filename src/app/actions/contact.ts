@@ -7,7 +7,11 @@ interface EmailData {
     message: string;
 }
 
-export default async function sendEmailFromContactForm(formData: EmailData) {
+export default async function sendEmailFromContactForm(formData: {
+    name: string | File | null;
+    email: string | File | null;
+    message: string | File | null
+}) {
         const { name, email, message }: EmailData = formData
         // Nodemailer konfigurieren
         const transporter = nodemailer.createTransport({
