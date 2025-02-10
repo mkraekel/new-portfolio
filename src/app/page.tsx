@@ -4,14 +4,13 @@ import { Button } from '@/components/ui/button';
 import {
     ChevronUp,
 } from 'lucide-react';
-import { motion } from 'framer-motion';
 import Contact from "./components/ContactForm"
 import Services from "./components/Services"
 import Footer from "./components/Footer"
 import About from "./components/About"
 import Navigation from "@/app/components/Navbar";
 import Testimonials from "./components/Testimonials";
-
+//
 const Hero = () => {
     return (
         <section id="home" className="min-h-screen flex items-center justify-center pt-16 bg-[#dbe9f9] relative overflow-hidden">
