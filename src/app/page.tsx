@@ -71,7 +71,7 @@ const Hero = () => {
     );
 };
 
-const ScrollToTop = ({ isVisible }) => {
+const ScrollToTop = ({ isVisible }:{isVisible: boolean}) => {
     return (
         <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
