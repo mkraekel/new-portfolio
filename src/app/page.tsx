@@ -10,10 +10,11 @@ import Footer from "./components/Footer"
 import About from "./components/About"
 import Navigation from "@/app/components/Navbar";
 import Testimonials from "./components/Testimonials";
+import { motion } from 'framer-motion';
 //
 const Hero = () => {
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center pt-16 bg-[#dbe9f9] relative overflow-hidden">
+        <section id="home" className="min-h-screen flex items-center justify-center pt-16 bg-[#dbe9f9] border-2 overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 w-full h-full pointer-events-none">
                 <div className="absolute w-48 h-48 bg-[#b9d4f3] rounded-full -top-24 -left-24
@@ -33,40 +34,59 @@ const Hero = () => {
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 container mx-auto px-4">
-                {/* Main Content */}
-                <div className="relative text-center">
-                    <span className="text-sm font-medium text-[#1f5cab] mb-4 block ">
-                        Softwareentwickler
-                    </span>
+            <motion.div className=" z-10 container text-center overflow-hidden">
+                <motion.span
+                    className="text-sm font-medium text-[#1f5cab] mb-4 block"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+                >
+                    Softwareentwickler
+                </motion.span>
 
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#1f5cab] mb-6">
-                        Mathis Kräkel
-                    </h1>
+                <motion.h1
+                    className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#1f5cab] mb-6"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                >
+                    Mathis Kräkel
+                </motion.h1>
 
-                    <p className="text-lg md:text-xl text-[#3982dc] max-w-2xl mx-auto mb-12 leading-relaxed">
-                        Ein erfahrener Softwareentwickler, der elegante Lösungen entwickelt und beeindruckende digitale Erlebnisse schafft.
-                    </p>
+                <motion.p
+                    className="text-lg md:text-xl text-[#3982dc] max-w-2xl mx-auto mb-12 leading-relaxed"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+                >
+                    Ein erfahrener Softwareentwickler, der elegante Lösungen entwickelt und beeindruckende digitale Erlebnisse schafft.
+                </motion.p>
 
-                    <div className="flex flex-col sm:flex-row justify-center gap-4 items-center">
-                        <Button
-                            size="lg"
-                            className="bg-[#1f5cab] hover:bg-[#3982dc] text-white px-8 h-12"
-                            asChild
-                        >
-                            <a href="#about">Erfahre mehr</a>
-                        </Button>
-                        <Button
-                            size="lg"
-                            variant="outline"
-                            className="border-2 border-[#75aae7] hover:border-[#3982dc] hover:bg-[#b9d4f3] h-12 px-8 text-[#1f5cab]"
-                            asChild
-                        >
-                        </Button>
-                    </div>
-                </div>
+                <motion.div
+                    className="flex flex-col sm:flex-row justify-center gap-4 items-center"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+                >
+                    <Button
+                        size="lg"
+                        className="bg-[#1f5cab] hover:bg-[#3982dc] text-white px-8 h-12"
+                        asChild
+                    >
+                        <a href="#about">Erfahre mehr</a>
+                    </Button>
 
-            </div>
+                    {/*<Button*/}
+                    {/*    size="lg"*/}
+                    {/*    variant="outline"*/}
+                    {/*    className="border-2 border-[#75aae7] hover:border-[#3982dc] hover:bg-[#b9d4f3] h-12 px-8 text-[#1f5cab]"*/}
+                    {/*    asChild*/}
+                    {/*>*/}
+                    {/*    <a href="#contact">Kontakt</a>*/}
+                    {/*</Button>*/}
+                </motion.div>
+            </motion.div>
+
         </section>
     );
 };
