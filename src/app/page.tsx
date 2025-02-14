@@ -14,7 +14,7 @@ import { motion } from 'framer-motion';
 //
 const Hero = () => {
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center pt-16 bg-[#dbe9f9] border-2 overflow-hidden">
+        <section id="home" className="min-h-screen relative flex items-center justify-center pt-16 bg-[#dbe9f9]  overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 w-full h-full pointer-events-none">
                 <div className="absolute w-48 h-48 bg-[#b9d4f3] rounded-full -top-24 -left-24
@@ -34,7 +34,7 @@ const Hero = () => {
             </div>
 
             {/* Content Container */}
-            <motion.div className=" z-10 container text-center overflow-hidden">
+            <motion.div className=" z-10 container py-10 text-center overflow-hidden">
                 <motion.span
                     className="text-sm font-medium text-[#1f5cab] mb-4 block"
                     initial={{ opacity: 0, y: 50 }}
