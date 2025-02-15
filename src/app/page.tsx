@@ -11,6 +11,7 @@ import About from "./components/About"
 import Navigation from "@/app/components/Navbar";
 import Testimonials from "./components/Testimonials";
 import { motion } from 'framer-motion';
+import Link from "next/link";
 //
 const Hero = () => {
     return (
@@ -74,6 +75,12 @@ const Hero = () => {
                         asChild
                     >
                         <a href="#about">Erfahre mehr</a>
+                    </Button>
+                    <Button asChild                         className="bg-[#1f5cab] hover:bg-[#3982dc] text-white px-8 h-12"
+                    >
+                        <Link  href={"https://calendly.com/mathis-kraekel-ijhy/30min"} target={"_blank"} >
+                            Buche ein Meeting
+                        </Link>
                     </Button>
 
                     {/*<Button*/}

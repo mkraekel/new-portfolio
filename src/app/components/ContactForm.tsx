@@ -6,6 +6,7 @@ import {Textarea} from "@/components/ui/textarea";
 import {Button} from "@/components/ui/button";
 import {Mail, Send} from "lucide-react";
 import sendEmailFromContactForm from "@/app/actions/contact";
+import Link from "next/link";
 interface FormData {
     name: string;
     email: string;
@@ -44,7 +45,6 @@ export default function Contact() {
                     <p className="text-muted-foreground mb-8">
                         Haben Sie ein Projekt im Sinn oder möchten Sie zusammenarbeiten? Ich freue mich von Ihnen zu hören.
                     </p>
-
                     <Card className="bg-[#dbe9f9] ">
                         <CardContent className="pt-6">
                             <form onSubmit={() =>handleSubmit} className="space-y-6">
@@ -92,6 +92,12 @@ export default function Contact() {
                             <Mail className="w-5 h-5 mr-2" />
                             mathis@kraekel.com
                         </a>
+                        oder
+                        <Button asChild >
+                            <Link  href={"https://calendly.com/mathis-kraekel-ijhy/30min"} target={"_blank"} >
+                                Buche ein Meeting
+                            </Link>
+                        </Button>
                     </div>
                 </div>
             </div>
