@@ -22,12 +22,11 @@ export default function Contact() {
             email: (e.currentTarget.elements.namedItem("email") as HTMLInputElement).value,
             message: (e.currentTarget.elements.namedItem("message") as HTMLTextAreaElement).value,
         };
-        console.log(formData)
         try {
             const result = await sendEmailFromContactForm(formData)
             if (result.ok) {
                 setStatus('Request successfully send!');
-                e.currentTarget?.reset()
+                // e.currentTarget?.reset()
             } else {
                 setStatus(result.message);
             }
@@ -47,7 +46,7 @@ export default function Contact() {
                     </p>
                     <Card className="bg-[#dbe9f9] ">
                         <CardContent className="pt-6">
-                            <form onSubmit={() =>handleSubmit} className="space-y-6">
+                            <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="space-y-3">
                                     <Input
                                         name="name"

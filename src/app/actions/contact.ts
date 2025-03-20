@@ -30,6 +30,7 @@ export default async function sendEmailFromContactForm(formData: {
         try {
             // E-Mail senden
             await transporter.sendMail(mailOptions);
+            console.log(message)
             return {
                 ok: true,
                 message: "Email successfully sent"

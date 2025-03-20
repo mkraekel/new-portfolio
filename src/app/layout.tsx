@@ -1,14 +1,16 @@
 import "./globals.css";
-import {Metadata} from "next";
+import {Metadata, Viewport} from "next";
 
+export const viewport: Viewport = {
+    width: 'device-width',
+    initialScale: 1,
+}
 export const metadata: Metadata = {
     title: 'Mathis Kräkel - Softwareentwicklung & Beratung',
     description: 'Professionelle Softwareentwicklung und technische Beratung. Maßgeschneiderte Lösungen für Ihre digitalen Herausforderungen. Jetzt unverbindlich anfragen!',
     keywords: 'Softwareentwicklung, Technische Beratung, Webentwicklung, Freelancer, Digitalberatung, Projektentwicklung, Technische Lösungen',
     authors: [{ name: 'Mathis Kraekel' }],
     robots: 'index, follow',
-    viewport: 'width=device-width, initial-scale=1.0',
-
     openGraph: {
         title: 'Mathis Kräkel - Individuelle Softwarelösungen',
         description: 'Professionelle Softwareentwicklung und Beratung. Effiziente Lösungen für Ihr Unternehmen.',
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
         canonical: 'https://mathiskraekel.de',
     },
 }
-export default function RootLayout({
+export default async function RootLayout({
 
   children,
 }: Readonly<{
